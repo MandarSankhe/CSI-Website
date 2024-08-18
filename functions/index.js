@@ -29,8 +29,8 @@ const mongoose = require("mongoose");
 app.use(express.static("public"));
 app.use(express.static("resources"));
 app.set("view engine", "ejs");
-app.listen(4005, () => {
-  console.log(`App listening on port 4005`);
+app.listen(4002, () => {
+  console.log(`App listening on port 4002`);
 });
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -44,6 +44,11 @@ app.use(
 
 //database connection
 mongoose.connect(
-  "mongodb+srv://mandarsankhe:mandar1231@cluster0.2y2ujpq.mongodb.net/drivetest?retryWrites=true&w=majority&appName=Cluster0",
+  "mongodb+srv://mandarsankhe:mandar1231@cluster0.2y2ujpq.mongodb.net/CSI?retryWrites=true&w=majority&appName=Cluster0",
   { useNewUrlParser: true }
 );
+
+const homeController = require("./controllers/home");
+app.get("/home", homeController); //Loads home page (dashboard)
+
+exports.app = functions.https.onRequest(app);
