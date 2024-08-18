@@ -29,8 +29,8 @@ const mongoose = require("mongoose");
 app.use(express.static("public"));
 app.use(express.static("resources"));
 app.set("view engine", "ejs");
-app.listen(4009, () => {
-  console.log(`App listening on port 4009`);
+app.listen(4015, () => {
+  console.log(`App listening on port 4015`);
 });
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -48,7 +48,16 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
+//middleware controllers
+const menuData = require("./middlewares/menuData");
+
 const homeController = require("./controllers/home");
-app.get("/home", homeController); //Loads home page (dashboard)
+
+// app.use((req, res, next) => {
+//     menuController.getMenus(req, res, next);
+//   });
+
+app.get("/home", menuData, homeController); //Loads home page (dashboard)
+app.get("/", menuData, homeController); //Loads home page (dashboard)
 
 exports.app = functions.https.onRequest(app);
