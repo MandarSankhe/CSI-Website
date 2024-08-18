@@ -29,8 +29,8 @@ const mongoose = require("mongoose");
 app.use(express.static("public"));
 app.use(express.static("resources"));
 app.set("view engine", "ejs");
-app.listen(4002, () => {
-  console.log(`App listening on port 4002`);
+app.listen(4005, () => {
+  console.log(`App listening on port 4005`);
 });
 app.use(express.urlencoded({ extended: true }));
 app.use(
