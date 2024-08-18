@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
 /*!
 * Start Bootstrap - Modern Business v5.0.7 (https://startbootstrap.com/template-overviews/modern-business)
 * Copyright 2013-2023 Start Bootstrap
@@ -62,7 +63,9 @@
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
+  --bs-body-color-dark: #caddf0;
   --bs-body-bg: #fff;
+  --bs-body-bg-dark: #000;
   --bs-border-width: 1px;
   --bs-border-style: solid;
   --bs-border-color: #dee2e6;
@@ -104,7 +107,11 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.logo {
+body.dark {
+    color: var(--bs-body-color-dark);
+    background-color: var(--bs-body-bg-dark);
+}
+.logo, .portfolioSub p h2 {
      max-width: 300px; /* Added by Mandar 18th August, 2024 */
 }
 
@@ -112,12 +119,16 @@ body {
     background-image: url('../images/backgroundimage.png');
     background-repeat: no-repeat;
     background-size: cover;
+    padding: clamp(20px, 5vw, 40px);;
 }
 
 nav {
     background-image: url('../images/backgroundimagemenu.png');
     background-repeat: no-repeat;
     background-size: cover;
+    position: sticky !important;
+    top: 0;
+    z-index: 3;
 }
 .bgcontainer {
     position: relative;
@@ -3762,10 +3773,10 @@ textarea.form-control-lg {
   --bs-navbar-padding-y: 0.5rem;
   --bs-nav-link-font-weight: 700 ;
   --bs-nav-link-font-size: 1.25rem;
-  --bs-navbar-color: rgba(0, 0, 0, 0.55);
-  --bs-navbar-hover-color: rgba(0, 0, 0, 0.7);
+  --bs-navbar-color: rgb(0, 0, 0);
+  --bs-navbar-hover-color: rgb(175, 80, 159);
   --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
-  --bs-navbar-active-color: rgba(0, 0, 0, 0.9);
+  --bs-navbar-active-color: rgba(180, 133, 188);
   --bs-navbar-brand-padding-y: 0.3125rem;
   --bs-navbar-brand-margin-end: 1rem;
   --bs-navbar-brand-font-size: 1.25rem;
@@ -10918,4 +10929,269 @@ header {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #215866; 
+}
+
+
+
+/* latest portfolio */
+.latestPortfolio {
+    padding: clamp(20px, 5vh, 40px) clamp(60px, 10vw, 110px);
+
+}
+
+.portfolioSub {
+    text-align: center;
+}
+
+.portfoliocategory {
+    display: flex;
+    gap: clamp(10px, 2vw, 20px);
+}
+
+.portfolioFlex {
+    position: relative;
+    text-align: center;
+    color: #cb5ddd;
+    overflow: hidden;
+}
+
+.portfolioFlex .innerPortfolio {
+    position: absolute;
+    bottom: 8%;
+    left: 20px;
+    right: 0px;
+    width: 88%;
+}
+
+.portfolioFlex img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.innerPortfolio p {
+    font-weight: 700;
+    font-size: larger;
+}
+
+.innerPortfolio hr {
+    width: 25%;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.portfolioFlex:hover hr {
+    width: 100%;
+    transition-property: all;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.portfolioFlex:hover .overlay {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.portfolioFlex:hover img {
+    transform: scale(1.1);
+}
+
+/* Default styles */
+nav {
+    transition: filter 0.3s ease;
+}
+
+/* Dark mode */
+body.dark nav {
+    filter: invert(1);
+}
+
+body.dark .maincontainer {
+    background-image: url(../images/backgroundimagedark.png);
+    color: white;
+}
+
+/* Style for dropdown menu */
+.dropdown-menu {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Show the dropdown menu with delay */
+.show.dropdown-menu {
+    transition-delay: 1s; /* 1-second delay before showing */
+}
+
+
+/*carousel */
+
+
+
+.carousel-fade .carousel-inner .item {
+    opacity: 0;
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity;
+  }
+  
+  .carousel-fade .carousel-inner .active {
+    opacity: 1;
+  }
+  
+  .carousel-fade .carousel-inner .active.left,
+  .carousel-fade .carousel-inner .active.right {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+  }
+  
+  .carousel-fade .carousel-inner .next.left,
+  .carousel-fade .carousel-inner .prev.right {
+    opacity: 1;
+  }
+  
+  .carousel-fade .carousel-control {
+    z-index: 2;
+  }
+  
+  @keyframes slideUp {
+    0% {
+      bottom: -50%;
+    }
+  
+    100% {
+      bottom: 0;
+    }
+  }
+  
+  .carousel-item > img {
+    float: left;
+    width: 100%;
+    height: 95vh;
+    object-fit: cover;
+    filter: brightness(50%);
+    animation: float-up-down 18s ease-in-out infinite;
+  }
+  
+  @keyframes float-up-down {
+    from {
+      transform: translateX(0) translateY(0) scale(1.3);
+      top: 50%;
+      left: 50%;
+    }
+  
+    to {
+      transform: translateX(350px) translateY(350px) scale(1);
+      top: 40%;
+      left: 40%;
+    }
+  }
+  
+  .carousel-caption {
+    bottom: 40%;
+  }
+  
+  .carousel-caption > h1 {
+    font-family: "EB Garamond";
+    text-transform: uppercase;
+    height: auto;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    white-space: normal;
+    min-height: 0px;
+    min-width: 0px;
+    max-height: none;
+    max-width: none;
+    text-align: center;
+    line-height: 75px;
+    letter-spacing: 11px;
+    font-weight: 400;
+    font-size: 55px;
+    transform-origin: 50% 50% 0px;
+    opacity: 1;
+    transform: translate(0px);
+    visibility: visible;
+  }
+  
+  .carousel-caption > p {
+    font-family: "EB Garamond";
+    font-style: italic;
+    height: auto;
+    width: auto;
+    color: rgb(201, 171, 129);
+    text-decoration: none;
+    white-space: nowrap;
+    min-height: 0px;
+    min-width: 0px;
+    max-height: none;
+    max-width: none;
+    line-height: 35px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    font-size: 21px;
+    transform-origin: 50% 50% 0px;
+    opacity: 1;
+    transform: translate(0px);
+  }
+  
+  .subheadingtext {
+    font-family: "EB Garamond";
+    font-size: 21px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.47em;
+    letter-spacing: 0;
+    color: #c9ab81;
+  }
+  
+  .headingtext {
+    color: #525252;
+    font-family: "EB Garamond";
+    margin: 25px 0;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #525252;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    letter-spacing: 0.16em;
+  }
+
+  .homeimg {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+  }
+  
+  .slider {
+    height: 400px;
+  }
+  
+  .slide-card {
+    width: 300px;
+  }
+  
+  .arrow {
+    width: 40px;
+    height: 40px;
+  }
+  
+@media screen and (max-width: 770px) {
+
+    .portfoliocategory {
+        flex-direction: column;
+    }
+
 }

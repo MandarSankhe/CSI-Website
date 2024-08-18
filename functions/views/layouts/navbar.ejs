@@ -14,24 +14,30 @@
                 <% menus.forEach(menu => { %>
                     <% if (menu.submenus && menu.submenus.length > 0) { %>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="<%= menu.route %>" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle <%= currentRoute === menu.route ? 'active' : '' %>"
+                                href="<%= menu.route %>" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <%= menu.title %>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <% menu.submenus.forEach(submenu => { %>
                                     <li>
-                                        <a class="dropdown-item" href="<%= submenu.route %>"><%= submenu.title %></a>
+                                        <a class="dropdown-item <%= currentRoute === submenu.route ? 'active' : '' %>"
+                                            href="<%= submenu.route %>"><%= submenu.title %></a>
                                     </li>
                                 <% }) %>
                             </ul>
                         </li>
                     <% } else { %>
                         <li class="nav-item">
-                            <a class="nav-link" href="<%= menu.route %>"><%= menu.title %></a>
+                            <a class="nav-link <%= currentRoute === menu.route ? 'active' : '' %>"
+                                href="<%= menu.route %>"><%= menu.title %></a>
                         </li>
                     <% } %>
                 <% }) %>
+                <li class="nav-item">
+                    <button class="btn btn-primary" onclick="changetheme()">Change Theme</button>
+                </li>
             </ul>
         </div>
     </div>
