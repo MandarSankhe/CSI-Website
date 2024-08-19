@@ -43,6 +43,24 @@ window.onload = function() {
       pause: false,
     });
 
+
+
+    function changecolor() {
+        let scrollPosition = $(window).scrollTop();
+        if (scrollPosition >= 580) {
+          // Apply CSS changes when scrolled past 500px
+          $(".logo").css("max-width", "150px");
+        } else {
+          // Reset CSS changes when scrolled back up
+          $(".logo").css("max-width", "300px");
+        }
+      }
+      changecolor();
+    
+      $(window).scroll(function () {
+        changecolor();
+      });
+
       
   // SLIDER FUNCTIONALITY
   // get card width dynamically

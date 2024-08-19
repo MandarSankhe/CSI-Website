@@ -113,6 +113,7 @@ body.dark {
 }
 .logo, .portfolioSub p h2 {
      max-width: 300px; /* Added by Mandar 18th August, 2024 */
+     transition: 0.5s ease-in-out;
 }
 
 .maincontainer {
@@ -10940,7 +10941,7 @@ header {
 
 .portfoliocategory {
     display: flex;
-    gap: clamp(10px, 2vw, 20px);
+    gap: clamp(10px, calc(5vw), 60px);
 }
 
 .portfolioFlex {
