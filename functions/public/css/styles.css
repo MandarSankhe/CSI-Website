@@ -11206,6 +11206,10 @@ body.dark .maincontainer {
         padding-bottom: 0;
         height: 80% !important;
     }
+    
+    .carousel-caption > h1 {
+        line-height: 20px;
+    }
   }
   
 @media screen and (max-width: 770px) {
