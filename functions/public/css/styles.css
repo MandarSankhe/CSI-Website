@@ -1968,15 +1968,10 @@ progress {
     -webkit-overflow-scrolling: touch;
   }
   .logo {
-    width: 30%;   /* Added by Mandar 06/10/24 */
+    width: 50%;   /* Added by Mandar 06/10/24 */
   }
 }
 
-@media (max-width: 415px) {
-  .logo {
-    display: none;   /* Added by Mandar 06/10/24 */
-  }
-}
 
 @media (max-width: 767.98px) {
   .table-responsive-md {
