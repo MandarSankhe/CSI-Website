@@ -31,7 +31,7 @@ window.onload = function() {
    
     captions.css({
       bottom: "-100%",
-      animation: "slideUp 0.8s ease-in-out forwards",
+      animation: "slideUp 0.4s ease-in-out forwards",
       display: "flex",
       "flex-direction": "column",
       "justify-content": "center",
