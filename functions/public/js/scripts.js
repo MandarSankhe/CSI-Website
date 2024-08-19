@@ -39,7 +39,7 @@ window.onload = function() {
     });
    
     const carousel1 = new bootstrap.Carousel(carousel, {
-      interval: 2200,
+      interval: 3000,
       pause: false,
     });
 

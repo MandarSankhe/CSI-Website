@@ -7074,9 +7074,9 @@ textarea.form-control-lg {
   display: inline-flex !important;
 }
 
-.d-none {
+/* .d-none {
   display: none !important;
-}
+} */
 
 .shadow {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
@@ -10946,7 +10946,7 @@ header {
 .portfolioFlex {
     position: relative;
     text-align: center;
-    color: #cb5ddd;
+    color: #ffd83d;
     overflow: hidden;
 }
 
@@ -11114,7 +11114,7 @@ body.dark .maincontainer {
     line-height: 75px;
     letter-spacing: 11px;
     font-weight: 400;
-    font-size: 55px;
+    font-size: clamp(35px, 4vw + 1rem, 55px);
     transform-origin: 50% 50% 0px;
     opacity: 1;
     transform: translate(0px);
